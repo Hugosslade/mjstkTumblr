@@ -1,0 +1,7 @@
+Provides a simple PHP script which can be used in a a very simple way - ideal for AJAX applications. Once logged in you can utilise all of the API supplied by Tumblr
+
+Documentation: http://www.tumblr.com/docs/en/api/v2
+
+Example: mjstkTumblr.php?login to login
+         mjstkTumblr.php?logout to logout
+
