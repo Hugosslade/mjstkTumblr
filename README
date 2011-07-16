@@ -5,3 +5,9 @@ Documentation: http://www.tumblr.com/docs/en/api/v2
 Example: mjstkTumblr.php?login to login
          mjstkTumblr.php?logout to logout
 
+         mjstkTumblr.php?method=user/dashboard
+         mjstkTumblr.php?method=user/dashboard&limit=1&type=photo
+
+         mjstkTumblr.php?method=blog/{blog-url}/info
+         mjstkTumblr.php?method=blog/{blog-url}/posts
+         mjstkTumblr.php?method=blog/{blog-url}/posts/photo&limit=5
