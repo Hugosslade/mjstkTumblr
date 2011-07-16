@@ -5,13 +5,13 @@
 # Arvin Castro, arvin@sudocode.net
 # Mad Props to him
 
-require_once("class-xhttp-php/class.xhttp.php");
-require_once 'config.php';
+require_once "class-xhttp-php/class.xhttp.php";
+require_once "config.php";
 
-$requestTokenURL = 'http://www.tumblr.com/oauth/request_token';
-$authorizeURL    = 'http://www.tumblr.com/oauth/authorize';
-$accessTokenURL  = 'http://www.tumblr.com/oauth/access_token';
-$baseURL		 = 'api.tumblr.com/v2/';
+$requestTokenURL = "http://www.tumblr.com/oauth/request_token";
+$authorizeURL    = "http://www.tumblr.com/oauth/authorize";
+$accessTokenURL  = "http://www.tumblr.com/oauth/access_token";
+$baseURL		 = "http://api.tumblr.com/v2/";
 
 session_name('tumblroauth');
 session_start();
@@ -20,8 +20,6 @@ xhttp::load('profile,oauth');
 $tumblr = new xhttp_profile();
 $tumblr->oauth($consumer_token, $consumer_secret);
 $tumblr->oauth_method('get');
-
-if($_GET){
 
 if(isset($_GET['logout'])) {
     $_SESSION = array();
@@ -53,7 +51,6 @@ if(isset($_GET['logout'])) {
 
 } else if(isset($_GET['login']) and $_SESSION['loggedin']) {
 	echo 'already logged in';
-	
 } else if($_GET['oauth_token'] == $_SESSION['oauth_token'] and $_GET['oauth_verifier'] and !$_SESSION['loggedin']) {
 
     # STEP 6: Application contacts Tumblr to exchange Request Token for an Access Token.
@@ -92,14 +89,9 @@ if(isset($_GET['logout'])) {
 		header('Content-type: application/json; charset=utf-8');
 		echo $response['body'];
 	} else {
-		echo "error - <pre>";	
-		var_dump($response);
-		echo "</pre>";
+		echo "error";
 	}
-	
-	
-}
 } else {
-	echo "error";
+	echo "weird error";
 }
 ?>
